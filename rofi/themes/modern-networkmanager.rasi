@@ -1,0 +1,72 @@
+* {
+    bg: #121212;
+    bg-alt: #212121;
+    fg: #e5ffff;
+    fg-alt: #97c4c4;
+    selected:  #ffffffff;
+    selected-fg: #000000;
+    border:    #affff3;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMonoNL Nerd Font Propo 11";
+
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @border;
+    border-radius: 7px;
+    padding: 10px;
+    width: 30%;
+}
+
+mainbox {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 4px;
+    padding: 8px 10px;
+    children: [prompt];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 0 8px 0 0;
+}
+
+listview {
+    lines: 15;
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    spacing:      2px ;
+    scrollbar:    true;
+    padding:      2px 0px 0px ;
+
+}
+
+element {
+    border-radius: 5px;
+    padding: 6px;
+}
+
+element-text selected{
+    //text-color: @border;
+    text-color: #7cf8ff;
+}
+
+
+
+element selected {
+    background-color: #c2ffff10;
+}
+
+

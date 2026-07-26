@@ -1,0 +1,90 @@
+* {
+    bg: #121212;
+    bg-alt: #212121;
+    fg: #e5ffff;
+    fg-alt: #97c4c4;
+    selected:  #ffffffff;
+    selected-fg: #000000;
+    border:    #affff3;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMonoNL Nerd Font Propo 11";
+
+}
+
+window {
+    width: 35%;
+    background-color: #121212d3;
+    border: 2px;
+    border-color: @border;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 4px;
+    padding: 8px 10px;
+    children: [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @border;
+    padding: 0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "Search";
+    placeholder-color: @fg-alt;
+}
+
+listview {
+    scrollbar-enabled: true;
+    lines: 5;
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    spacing:      2px ;
+    scrollbar:    true;
+    dynamic: false;
+
+}
+
+scrollbar {
+    handle-color: @fg-alt;
+    handle-width: 6px;
+    padding: 0 0 0 5px;
+}
+
+element {
+    border-radius: 5px;
+    children: ["element-icon", element-text];
+    padding: 6px;
+}
+
+element-text selected{
+    //text-color: @border;
+    text-color: #7cf8ff;
+}
+
+element-icon {
+    size : 30px;
+}
+
+
+element selected {
+    background-color: #c2ffff10;
+}
+
+

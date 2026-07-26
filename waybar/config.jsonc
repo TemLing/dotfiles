@@ -1,0 +1,132 @@
+{
+    "layer": "top",
+    "margin-top": 1,
+    "width": 1300,
+
+    "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    //"sway/window",
+    "mpris"
+    ],
+
+    "modules-center": [
+    "clock",
+    "custom/notification"
+    ],
+
+    "modules-right": [
+    
+    "network",
+    "pulseaudio",
+    "battery",
+    "group/tray"
+    ],
+
+    "sway/window": {
+        "max-length": 0
+
+    },
+    "battery": {
+        "format": "{capacity}% {icon} ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": " {:%a %d %b | %H:%M}",
+        "tooltip":false
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+
+            "headphone": "",
+            "hands-free": "󰂑",
+            "headset": "󰂑",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "interface": [
+            "wlan0",
+            "enp0s20f0u2u2"
+        ],
+        "format": "{ifname}",
+        "format-wifi": "{bandwidthDownBits}{bandwidthUpBits}  ",
+        "format-ethernet": "",
+        "on-click": "networkmanager_dmenu -d rofi",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({frequency}GHz) ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "mpris": {
+	"format": " {status_icon} {artist} - {title} ",
+	"format-paused": " {status_icon} <i>{artist} - {title}</i> ",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+        "playing": "",
+		"paused": ""
+	},
+	//"ignored-players": ["Helium"]
+    "max-length": 40
+},
+
+"tray": {
+    "spacing": 7,
+    "icon-size": 17,
+},
+
+"group/tray": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 250
+    },
+	"modules": [
+        "custom/tray-icon",
+        "tray"
+    ]
+},
+"custom/tray-icon": {
+    "format": "󰍜",
+    "tooltip":false
+    
+
+},
+
+"custom/notification": {
+	"tooltip": false,
+  	"format": "{icon}",
+  	"format-icons": {
+  		"notification": "<span foreground='red'><sup></sup></span>",
+  		"none": "",
+  		"dnd-notification": "<span foreground='red'><sup></sup></span>",
+  		"dnd-none": "",
+  		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+  		"inhibited-none": "",
+  		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+  		"dnd-inhibited-none": ""
+  	},
+  	"return-type": "json",
+  	"exec-if": "which swaync-client",
+  	"exec": "swaync-client -swb",
+  	"on-click": "swaync-client -t -sw",
+  	"on-click-right": "swaync-client -d -sw",
+  	"escape": true
+  }
+
+}

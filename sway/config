@@ -1,0 +1,286 @@
+include /etc/sway/config.d/*
+
+##################################################
+# variables.conf
+##################################################
+
+set $mod Mod4
+set $alt Mod1
+
+set $left h
+set $down k
+set $up j
+set $right l
+
+set $term alacritty
+set $menu exec sh -c 'pkill -x rofi || rofi -show drun -display-drun "󰀻" -show-icons -theme ~/.config/rofi/themes/modern-app-manager.rasi'
+
+##################################################
+# autostart.conf
+##################################################
+
+# Wallpaper
+exec_always pkill awww-daemon; awww-daemon &
+exec_always sh -c 'sleep 0.5 && awww restore'
+
+# Idle daemon
+exec_always pkill -x swayidle; swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+# Notification
+exec_always pkill swaync ; swaync &
+
+exec_always wl-paste --type text --watch cliphist store
+exec_always wl-paste --type image --watch cliphist store
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
+
+##################################################
+# input.conf
+##################################################
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+
+##################################################
+# bar.conf
+##################################################
+
+bar {
+    swaybar_command waybar
+}
+
+
+##################################################
+# idle.conf
+##################################################
+
+exec_always pkill -x swayidle; swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+
+##################################################
+# effects.conf
+##################################################
+
+#shadows enable
+#blur enable
+
+#blur_passes 2
+#blur_radius 7
+#blur_noise 0.02
+
+
+##################################################
+# APPEARANCE
+##################################################
+
+
+# --- appearance.conf ---
+
+default_border pixel 2
+default_floating_border pixel 2
+
+gaps inner 10
+gaps outer 1
+
+hide_edge_borders smart
+
+
+# --- colors.conf ---
+
+# Window borders
+client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
+client.focused_inactive #6b6b6b #6b6b6b #ffffff #6b6b6b #6b6b6b
+client.unfocused        #2b2b2b #2b2b2b #bfbfbf #2b2b2b #2b2b2b
+client.urgent           #ff5555 #ff5555 #ffffff #ff5555 #ff5555
+client.placeholder      #000000 #000000 #ffffff #000000 #000000
+
+# --- Cursor ----
+
+seat * xcursor_theme Bibata-Modern-Ice 24
+
+exec_always dbus-update-activation-environment --systemd XCURSOR_THEME=Bibata-Modern-Ice XCURSOR_SIZE=24
+
+##################################################
+# KEYBINDS
+##################################################
+
+
+# --- apps.conf ---
+
+bindsym $mod+Return exec $term
+bindsym $alt+space exec $menu
+
+bindsym $alt+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+
+# --- change-wallpaper.conf ---
+
+bindsym $alt+w exec ~/.config/sway/scripts/wallpaper-changer.sh
+
+
+# --- edit config ---
+
+bindsym $alt+c exec ~/.config/rofi/scripts/config-editor.sh
+
+
+
+# --- media.conf ---
+
+# Volume
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+# Mic
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Player
+bindsym --locked XF86AudioPlay exec playerctl play-pausei
+bindsym --locked XF86AudioPause exec playerctl play-pause
+
+bindsym --locked XF86AudioStop exec playerctl stop
+
+# Brightness
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
+
+
+# --- screenshots.conf ---
+
+# Area
+bindsym Print exec sh -c 'FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; grim -g "$(slurp)" - | tee "$FILE" | wl-copy'
+
+# Fullscreen
+bindsym Shift+Print exec sh -c 'FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; grim - | tee "$FILE" | wl-copy'
+
+
+# --- systems.conf ---
+
+bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+e exec sh -c 'pkill -x wlogout || wlogout'
+
+bindsym $mod+$alt+l exec swaylock
+
+bindsym $mod+r mode "resize"
+
+
+# --- windows.conf ---
+
+floating_modifier $mod normal
+
+bindsym $mod+q kill
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym Alt+Tab focus right
+bindsym Alt+Shift+Tab focus left
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# --- choose window ---
+bindsym $alt+Shift+space exec rofi -show window -window-format "{w}  {c} · {t}"
+
+# --- workspaces.conf ---
+
+# Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+
+#################################################
+# MODES						#
+#################################################
+
+
+# --- resize.conf ---
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

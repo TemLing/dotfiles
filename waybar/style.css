@@ -1,0 +1,77 @@
+* {
+    border: none;
+    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+    font-size: 12px;
+
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+    border-radius: 70px;
+    color: #121212; 
+}
+
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces {
+    transition: all 300ms ease-in-out;
+
+}
+
+#workspaces button {
+    transition: all 300ms ease-in-out;
+    padding: 0 7px;
+    margin: 0 1px;
+    background: alpha(#121212, 0.8);
+    color: white;
+    border: 1px solid #e4fff3;
+    border-radius: 8px;
+}
+
+#workspaces button.focused {
+    transition: all 300ms ease-in-out;
+    background: #e8eaed;
+    color: #121212;
+    min-width: 20px;
+    border-radius: 7px;
+}
+
+
+#clock {
+    font-weight: 700;
+    padding: 0 5px;
+    background-color: #121212;
+    color: white;
+    border-radius: 8px;
+    
+}
+
+#mpris, #battery,#pulseaudio,#network,#tray, #custom-notification {
+    background-color: #121212;
+    color: #e8eaed;
+    padding: 2px 3px 2px 6px;
+    margin: 0 3px;
+    border-radius: 10px;
+}
+
+#tray {
+    padding: 2px 9px;
+}
+
+#battery {
+    padding: 2px 3px 2px 9px;
+}
+
+#custom-notification {
+    padding: 0px 9px;
+}

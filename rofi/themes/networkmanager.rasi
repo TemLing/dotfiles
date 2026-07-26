@@ -1,0 +1,112 @@
+@theme "/dev/null"
+
+configuration {
+    font: "JetBrainsMono Nerd Font 11";
+    show-icons: false;
+}
+
+* {
+    bg:         #16181d;
+    bg-alt:     #1d2128;
+    fg:         #d8dee9;
+    fg-alt:     #7aa2f7;
+
+    background-color: transparent;
+    text-color: @fg;
+
+    margin: 0;
+    padding: 0;
+    spacing: 8px;
+}
+
+window {
+    width: 720px;
+
+    background-color: @bg;
+
+    border: 2px;
+    border-color: #7dcfff;
+    border-radius: 14px;
+
+    padding: 18px;
+}
+
+mainbox {
+    spacing: 12px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+
+    background-color: @bg-alt;
+
+    border: 0;
+    border-radius: 10px;
+
+    padding: 10px;
+}
+
+prompt {
+    text-color: @fg-alt;
+
+    padding: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Search network...";
+    expand: true;
+}
+
+message {
+    border: 0;
+}
+
+textbox {
+    border: 0;
+}
+
+listview {
+    lines: 12;
+
+    spacing: 6px;
+
+    scrollbar: false;
+
+    border: 0;
+
+    dynamic: true;
+}
+
+element {
+    border: 0;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: #2b3640;
+    text-color: #7dcfff;
+}
+
+element selected.active {
+    background-color: #2b3640;
+    text-color: #7dcfff;
+}
+
+element-icon {
+    size: 1.0em;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+}
