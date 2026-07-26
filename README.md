@@ -4,7 +4,7 @@ My personal Linux desktop configuration based on **SwayWM**.
 
 A minimal and keyboard-driven Wayland setup for daily use.
 
----
+
 
 ## Components
 
@@ -19,7 +19,7 @@ A minimal and keyboard-driven Wayland setup for daily use.
 | Logout Menu | Wlogout |
 | System Info | Fastfetch |
 
----
+
 
 ## Repository Structure
 
@@ -37,7 +37,7 @@ A minimal and keyboard-driven Wayland setup for daily use.
 └── LICENSE
 ```
 
----
+
 
 ## Installation
 
@@ -60,7 +60,7 @@ cp -r waybar ~/.config/
 cp -r wlogout ~/.config/
 ```
 
----
+
 
 ## Dependencies
 
@@ -77,13 +77,13 @@ This setup uses:
 
 Package names may differ depending on your Linux distribution.
 
----
+
 
 ## Wallpapers
 
 The wallpapers used in this setup are available in the `wallpapers/` directory.
 
----
+
 
 ## License
 
