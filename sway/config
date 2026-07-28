@@ -12,8 +12,10 @@ set $down k
 set $up j
 set $right l
 
-set $term alacritty
+set $term kitty
 set $menu exec sh -c 'pkill -x rofi || rofi -show drun -display-drun "󰀻" -show-icons -theme ~/.config/rofi/themes/modern-app-manager.rasi'
+
+set $filemanager nautilus
 
 ##################################################
 # autostart.conf
@@ -118,6 +120,9 @@ exec_always dbus-update-activation-environment --systemd XCURSOR_THEME=Bibata-Mo
 ##################################################
 # KEYBINDS
 ##################################################
+# --- file manager ---
+
+bindsym $alt+e exec $filemanager
 
 
 # --- apps.conf ---
@@ -125,7 +130,7 @@ exec_always dbus-update-activation-environment --systemd XCURSOR_THEME=Bibata-Mo
 bindsym $mod+Return exec $term
 bindsym $alt+space exec $menu
 
-bindsym $alt+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $alt+v exec cliphist list | rofi -dmenu -p "󰆒" | cliphist decode | wl-copy
 
 
 # --- change-wallpaper.conf ---
@@ -150,8 +155,10 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Player
-bindsym --locked XF86AudioPlay exec playerctl play-pausei
+bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 bindsym --locked XF86AudioStop exec playerctl stop
 
