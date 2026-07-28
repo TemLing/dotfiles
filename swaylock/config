@@ -1,11 +1,11 @@
-image=/home/tylingga/Pictures/Wallpaper/black-and-white-6480x7454-21293.jpg
+image=~/Pictures/Wallpaper/black-and-white-1280x1472-21293.jpg
 
 clock
 indicator
 
 font=JetBrainsMono Nerd Font
 
-#effect-blur= 8x5
+effect-blur= 2x2
 
 indicator-radius=100
 indicator-thickness=7

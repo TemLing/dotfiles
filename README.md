@@ -4,7 +4,49 @@ My personal Linux desktop configuration based on **SwayWM**.
 
 A minimal and keyboard-driven Wayland setup for daily use.
 
+![[2026-07-28_17-37-08.png]]
 
+## Required Packages
+
+### Core
+
+- sway
+- waybar
+- rofi-wayland
+- alacritty
+- fish
+- swaylock
+- swayidle
+- swaync
+- wlogout
+
+### Wayland
+
+- xdg-desktop-portal
+- xdg-desktop-portal-wlr
+- wl-clipboard
+- grim
+- slurp
+
+### Networking
+
+- networkmanager
+- networkmanager-dmenu
+
+### Utilities
+
+- awww 
+- cliphist
+- playerctl
+- brightnessctl
+- pipewire
+- wireplumber
+
+### Fonts
+
+- ttf-jetbrains-mono-nerd
+- noto-fonts
+- noto-fonts-emoji
 
 ## Components
 
