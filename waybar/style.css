@@ -56,10 +56,18 @@ tooltip label {
     
 }
 
-#mpris, #battery,#pulseaudio,#network,#tray, #custom-notification {
+#mpris, #battery,#pulseaudio,#tray, #custom-notification {
     background-color: #121212;
     color: #e8eaed;
     padding: 2px 3px 2px 6px;
+    margin: 0 3px;
+    border-radius: 10px;
+}
+
+#network {
+    background-color: #121212;
+    color: #e8eaed;
+    padding: 0 0 0 7px;
     margin: 0 3px;
     border-radius: 10px;
 }
