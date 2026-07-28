@@ -7,4 +7,4 @@
 
 //@theme "/usr/share/rofi/themes/modern.rasi"
 
-@theme "/home/tylingga/.config/rofi/themes/modern.rasi"
+@theme "~/.config/rofi/themes/modern.rasi"
