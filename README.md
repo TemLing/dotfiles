@@ -4,7 +4,7 @@ My personal Linux desktop configuration based on **SwayWM**.
 
 A minimal and keyboard-driven Wayland setup for daily use.
 
-![[2026-07-28_17-37-08.png]]
+![](screenshots/2026-07-28_17-37-08.png)
 
 ## Required Packages
 
