@@ -1,8 +1,7 @@
 include /etc/sway/config.d/*
 
-##################################################
-# variables.conf
-##################################################
+
+# --- variables --- 
 
 set $mod Mod4
 set $alt Mod1
@@ -13,15 +12,13 @@ set $up j
 set $right l
 
 set $term kitty
-set $menu exec sh -c 'pkill -x rofi || rofi -show drun -display-drun "󰀻" -show-icons -theme ~/.config/rofi/themes/modern-app-manager.rasi'
+set $menu exec sh -c 'pkill -x rofi || rofi -show drun -display-drun "󰀻" -show-icons -theme ~/.config/rofi/themes/modern-app-launcher.rasi'
 
 set $filemanager nautilus
 
-##################################################
-# autostart.conf
-##################################################
+# --- autostart --- 
 
-# Wallpaper
+# --- Wallpaper ---
 exec_always pkill awww-daemon; awww-daemon &
 exec_always sh -c 'sleep 0.5 && awww restore'
 
@@ -32,7 +29,7 @@ exec_always pkill -x swayidle; swayidle -w \
     resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
 
-# Notification
+# --- Notification ---
 exec_always pkill swaync ; swaync &
 
 exec_always wl-paste --type text --watch cliphist store
@@ -42,9 +39,8 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
 
 
-##################################################
-# input.conf
-##################################################
+
+# --- input ---
 
 input type:touchpad {
     dwt enabled
@@ -54,18 +50,16 @@ input type:touchpad {
 }
 
 
-##################################################
-# bar.conf
-##################################################
+
+# --- bar ---
+
 
 bar {
     swaybar_command waybar
 }
 
 
-##################################################
-# idle.conf
-##################################################
+# --- idle ---
 
 exec_always pkill -x swayidle; swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
@@ -74,9 +68,7 @@ exec_always pkill -x swayidle; swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 
-##################################################
-# effects.conf
-##################################################
+# --- effects (for swayfx) ---  
 
 #shadows enable
 #blur enable
@@ -86,12 +78,7 @@ exec_always pkill -x swayidle; swayidle -w \
 #blur_noise 0.02
 
 
-##################################################
-# APPEARANCE
-##################################################
-
-
-# --- appearance.conf ---
+# --- appearance  ---
 
 default_border pixel 2
 default_floating_border pixel 2
@@ -102,7 +89,7 @@ gaps outer 1
 hide_edge_borders smart
 
 
-# --- colors.conf ---
+# --- colors  ---
 
 # Window borders
 client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
@@ -125,7 +112,7 @@ exec_always dbus-update-activation-environment --systemd XCURSOR_THEME=Bibata-Mo
 bindsym $alt+e exec $filemanager
 
 
-# --- apps.conf ---
+# --- apps  ---
 
 bindsym $mod+Return exec $term
 bindsym $alt+space exec $menu
@@ -133,7 +120,7 @@ bindsym $alt+space exec $menu
 bindsym $alt+v exec cliphist list | rofi -dmenu -p "󰆒" | cliphist decode | wl-copy
 
 
-# --- change-wallpaper.conf ---
+# --- change-wallpaper  ---
 
 bindsym $alt+w exec ~/.config/sway/scripts/wallpaper-changer.sh
 
@@ -144,7 +131,7 @@ bindsym $alt+c exec ~/.config/rofi/scripts/config-editor.sh
 
 
 
-# --- media.conf ---
+# --- media  ---
 
 # Volume
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -167,7 +154,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
 
 
-# --- screenshots.conf ---
+# --- screenshots  ---
 
 # Area
 bindsym Print exec sh -c 'FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; grim -g "$(slurp)" - | tee "$FILE" | wl-copy'
@@ -176,7 +163,7 @@ bindsym Print exec sh -c 'FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S)
 bindsym Shift+Print exec sh -c 'FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; grim - | tee "$FILE" | wl-copy'
 
 
-# --- systems.conf ---
+# --- systems  ---
 
 bindsym $mod+Shift+c reload
 
@@ -187,7 +174,7 @@ bindsym $mod+$alt+l exec swaylock
 bindsym $mod+r mode "resize"
 
 
-# --- windows.conf ---
+# --- windows  ---
 
 floating_modifier $mod normal
 
@@ -236,7 +223,7 @@ bindsym $mod+minus scratchpad show
 # --- choose window ---
 bindsym $alt+Shift+space exec rofi -show window -window-format "{w}  {c} · {t}"
 
-# --- workspaces.conf ---
+# --- workspaces  ---
 
 # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -264,12 +251,9 @@ bindsym $alt+Shift+space exec rofi -show window -window-format "{w}  {c} · {t}"
     # We just use 1-10 as the default.
 
 
-#################################################
-# MODES						#
-#################################################
+# MODES						
 
-
-# --- resize.conf ---
+# --- resize  ---
 
 mode "resize" {
     # left will shrink the containers width

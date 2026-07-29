@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-WALLPAPER_DIR="$HOME/Pictures/Wallpaper"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 ROFI_THEME="$HOME/.config/rofi/wallpaper.rasi"
 TRANSITION_TYPE="grow"
 TRANSITION_POS="center"

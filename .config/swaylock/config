@@ -5,7 +5,7 @@ indicator
 
 font=JetBrainsMono Nerd Font
 
-effect-blur= 2x2
+#effect-blur= 2x2
 
 indicator-radius=100
 indicator-thickness=7
