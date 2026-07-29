@@ -230,12 +230,6 @@ cp -r Pictures/* ~/Pictures/
 
 Log out and back in (or reload Sway with `Mod + Shift + C`) after installation.
 
-## Wallpapers
-
-Wallpaper images are in `wallpapers/`. The wallpaper picker (`Alt + W`) reads from
-`~/Pictures/Wallpaper` by default — copy the images there, or edit `WALLPAPER_DIR` in
-`sway/scripts/wallpaper-changer.sh` to point at this repo's `wallpapers/` folder instead.
-
 ## License
 
 This project is licensed under the MIT License.
