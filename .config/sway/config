@@ -14,9 +14,12 @@ set $right l
 set $term kitty
 set $menu exec sh -c 'pkill -x rofi || rofi -show drun -display-drun "󰀻" -show-icons -theme ~/.config/rofi/themes/modern-app-launcher.rasi'
 
-set $filemanager nautilus
+set $filemanager nautilus --new-window
 
 # --- autostart --- 
+
+exec /usr/lib/polkit-kde-authentication-agent-1
+
 
 # --- Wallpaper ---
 exec_always pkill awww-daemon; awww-daemon &
@@ -34,11 +37,6 @@ exec_always pkill swaync ; swaync &
 
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store
-
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-
-
 
 # --- input ---
 
@@ -107,12 +105,11 @@ exec_always dbus-update-activation-environment --systemd XCURSOR_THEME=Bibata-Mo
 ##################################################
 # KEYBINDS
 ##################################################
-# --- file manager ---
-
-bindsym $alt+e exec $filemanager
 
 
 # --- apps  ---
+
+bindsym $alt+e exec $filemanager
 
 bindsym $mod+Return exec $term
 bindsym $alt+space exec $menu
@@ -176,6 +173,11 @@ bindsym $mod+r mode "resize"
 
 # --- windows  ---
 
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="org.kde.kcalc"] floating enable
+
+assign [app_id="discord"] workspace number 2
+
 floating_modifier $mod normal
 
 bindsym $mod+q kill
@@ -220,7 +222,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# --- choose window ---
+# --- choose active window ---
 bindsym $alt+Shift+space exec rofi -show window -window-format "{w}  {c} · {t}"
 
 # --- workspaces  ---
