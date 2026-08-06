@@ -1,0 +1,37 @@
+[config]
+source_color = "auto"
+
+[config.wallpaper]
+command = "awww img -t random {{image}}"
+
+set = true
+
+[templates]
+
+[templates.niri]
+input_path = "~/.config/matugen-themes/templates/niri-colors.kdl"
+output_path = "~/.config/niri/matugen.kdl"
+
+[templates.kitty]
+input_path = "~/.config/matugen-themes/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/matugen.conf"
+post_hook = "pkill -SIGUSR1 kitty"
+
+[templates.noctalia]
+input_path = "~/.config/matugen-themes/templates/noctalia.json"
+output_path = "~/.config/noctalia/colorschemes/matugen/matugen.json"
+
+[templates.btop]
+input_path = "~/.config/matugen-themes/templates/btop.theme"
+output_path = "~/.config/btop/themes/matugen.theme"
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.gtk3]
+input_path = "~/.config/matugen-themes/templates/gtk-colors.css"
+output_path = "~/.config/gtk-3.0/colors.css"
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-reload.sh'
+
+[templates.gtk4]
+input_path = "~/.config/matugen-themes/templates/gtk-colors.css"
+output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-reload.sh'
