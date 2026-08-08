@@ -146,10 +146,15 @@ layout {
 }
 
 
-spawn-sh-at-startup "qs -c noctalia-shell"
+// spawn-sh-at-startup "qs -c noctalia-shell"
+
+spawn-sh-at-startup "systemctl --user start noctalia.service"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "~/.config/niri/scripts/swayidle.sh"
+
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
 
 
@@ -238,6 +243,7 @@ binds {
     
     Alt+W hotkey-overlay-title="Pick wallpaper: awww+Rofi" { spawn "~/.config/niri/scripts/wallpaper-changer.sh"; }
     Alt+Shift+W {spawn-sh "~/.config/niri/scripts/wallpaper-changer-matugen.sh";}
+    Ctrl+P {spawn-sh "~/.config/niri/scripts/mpc/playnext.sh";}
 
     Alt+C {spawn-sh "~/.config/niri/scripts/config-editor.sh";}
     Alt+V { spawn-sh "~/.config/niri/scripts/clipboard.sh";}

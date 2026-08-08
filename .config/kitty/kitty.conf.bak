@@ -1,0 +1,147 @@
+
+# General
+term xterm-kitty
+shell .
+
+# Window
+
+
+initial_window_width 100c
+initial_window_height 30c
+
+remember_window_size yes
+remember_window_position yes
+
+background_opacity 0.90
+dynamic_background_opacity yes
+
+hide_window_decorations no
+
+window_padding_width 8
+
+resize_draw_strategy static
+
+# Font
+
+
+font_family JetBrainsMonoNL Nerd Font Propo
+bold_font auto
+italic_font auto
+bold_italic_font auto
+
+font_size 9.0
+
+#modify_font cell_height -2px
+
+disable_ligatures never
+
+
+# Cursor
+
+
+cursor_shape underline
+cursor_blink_interval 0
+
+cursor_underline_thickness 1
+
+
+# Scrollback
+
+
+scrollback_lines 10000
+
+wheel_scroll_multiplier 3.0
+
+
+# Clipboard
+
+
+copy_on_select yes
+
+
+# Mouse
+
+mouse_hide_wait 0.0
+
+
+# Bell
+
+enable_audio_bell no
+visual_bell_duration 0
+
+# Selection
+
+
+strip_trailing_spaces smart
+
+
+# Performance
+repaint_delay 10
+input_delay 3
+sync_to_monitor yes
+
+
+# Colors (Nord)
+# foreground #D8DEE9
+# background #2E3440
+# selection_foreground #2E3440
+# selection_background #88C0D0
+# cursor #ECEFF4
+# cursor_text_color background
+# color0  #3B4252
+# color1  #BF616A
+# color2  #A3BE8C
+# color3  #EBCB8B
+# color4  #81A1C1
+# color5  #B48EAD
+# color6  #88C0D0
+# color7  #E5E9F0
+# color8  #4C566A
+# color9  #BF616A
+# color10 #A3BE8C
+# color11 #EBCB8B
+# color12 #81A1C1
+# color13 #B48EAD
+# color14 #8FBCBB
+# color15 #ECEFF4
+
+###############
+## Keybindings
+###############
+
+map ctrl+shift+c copy_to_clipboard
+map ctrl+c copy_or_interrupt
+
+map ctrl+shift+v paste_from_clipboard
+map ctrl+v paste_from_clipboard
+
+map ctrl+shift+f show_scrollback
+
+map ctrl+0 change_font_size all 0
+
+map shift+page_up scroll_page_up
+map shift+page_down scroll_page_down
+
+map shift+home scroll_home
+map shift+end scroll_end
+
+map ctrl+l combine : clear_terminal scroll active : clear_terminal scrollback active : send_text normal \x0c
+
+
+# Images
+
+allow_remote_control yes
+
+
+# Misc
+
+#scrollback_lines -10000
+#clear_all_shortcuts yes
+
+confirm_os_window_close 0
+
+
+# BEGIN_KITTY_THEME
+
+include matugen.conf
+# END_KITTY_THEME

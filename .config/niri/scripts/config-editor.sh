@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-term="alacritty"
+term="kitty"
 option=$(
 	printf "%s\n"\
 	"niri"\
 	"kitty"\
-	"matugen"| 
+	"matugen"\
+	"mpd"\
+	"rmpc"| 
 	rofi -dmenu -p "Edit" 
 )
 
@@ -16,4 +18,8 @@ case "$option" in
 	"kitty") "$term" --hold -e nvim "$HOME/.config/kitty/kitty.conf" ;;
 
 	"matugen") "$term" --hold -e nvim "$HOME/.config/matugen/config.toml" ;;
+
+	"mpd") "$term" --hold -e nvim "$HOME/.config/mpd/mpd.conf" ;;
+
+	"rmpc") "$term" --hold -e nvim "$HOME/.config/rmpc/config.ron" ;;
 esac

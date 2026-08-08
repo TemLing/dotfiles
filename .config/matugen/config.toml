@@ -1,0 +1,47 @@
+[config]
+source_color = "auto"
+
+[config.wallpaper]
+command = "awww img -t random {{image}}"
+
+set = true
+
+[templates]
+
+[templates.niri]
+input_path = "~/.config/matugen/templates/niri-colors.kdl"
+output_path = "~/.config/niri/matugen.kdl"
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/matugen.conf"
+post_hook = "pkill -SIGUSR1 kitty"
+
+[templates.noctalia]
+input_path = "~/.config/matugen/templates/noctalia.json"
+output_path = "~/.config/noctalia/colorschemes/matugen/matugen.json"
+post_hook = 'systemctl --user restart noctalia.service'
+
+[templates.btop]
+input_path = "~/.config/matugen/templates/btop.theme"
+output_path = "~/.config/btop/themes/matugen.theme"
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.rmpc]
+input_path = "~/.config/matugen/templates/rmpc/rmpc.ron"
+output_path = "~/.config/rmpc/matugen.ron"
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'
+
+[templates.gtk3]
+input_path = "~/.config/matugen/templates/gtk-colors.css"
+output_path = "~/.config/gtk-3.0/colors.css"
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-reload.sh'
+
+[templates.gtk4]
+input_path = "~/.config/matugen/templates/gtk-colors.css"
+output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-reload.sh'
