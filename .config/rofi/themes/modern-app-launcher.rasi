@@ -13,6 +13,7 @@
 
 }
 
+
 window {
     width: 35%;
     background-color: #121212d3;
@@ -34,13 +35,7 @@ inputbar {
     text-color: @fg;
     border-radius: 4px;
     padding: 8px 10px;
-    children: [prompt, entry];
-}
-
-prompt {
-    background-color: transparent;
-    text-color: @border;
-    padding: 0 8px 0 0;
+    children: [entry];
 }
 
 entry {

@@ -1,8 +1,8 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "builtin",
-        //"source": ,
+        "type": "kitty",
+        "source": "~/Downloads/image-removebg-preview.png",
         "height": 15,
         "width": 30,
         "padding": {
@@ -108,7 +108,7 @@
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌────────────────────Uptime / Age / DT────────────────────┐"
+            "format": "\u001b[90m┌─────────────────Uptime / Age / DT─────────────────┐"
         },
         {
             "type": "command",
@@ -128,7 +128,7 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└───────────────────────────────────────────────────┘"
         },
         {
             "type": "colors",

@@ -105,9 +105,9 @@ sync_to_monitor yes
 # color14 #8FBCBB
 # color15 #ECEFF4
 
-
-# Keybindings
-
+###############
+## Keybindings
+###############
 
 map ctrl+shift+c copy_to_clipboard
 map ctrl+c copy_or_interrupt
@@ -141,7 +141,7 @@ allow_remote_control yes
 confirm_os_window_close 0
 
 
-# Theme
+# BEGIN_KITTY_THEME
 
 include matugen.conf
-
+# END_KITTY_THEME

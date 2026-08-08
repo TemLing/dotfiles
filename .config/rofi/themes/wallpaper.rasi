@@ -1,0 +1,105 @@
+
+@theme "dev/null"
+@import "modern.rasi"
+* {
+    // bg:        #000000ff;
+    // bg-alt:    #111111ff;
+    // fg:        #ffffffff;
+    // fg-alt:    #888888ff;
+    // selected:  #ffffffff;
+    // selected-fg: #000000;
+    // border:    #ffffffff;
+
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @border;
+    border-radius: 3px;
+    width: 45%;
+    padding: 12px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 5px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 4px;
+    padding: 8px 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    // placeholder: "Search";
+    placeholder-color: @fg-alt;
+    
+}
+
+listview {
+    background-color: transparent;
+    columns: 3;
+    lines: 2;
+    // layout: vertical;
+    spacing: 5px;
+    fixed-height: false;
+    cycle: true;
+    scrollbar: true;
+    dynamic: false;
+}
+
+scrollbar {
+    width: 6px;
+    handle-width: 6px;
+    handle-color: #ffffff;
+    background-color: #222222;
+    border-radius: 6px;
+}
+
+element {
+    background-color: @bg-alt;
+    text-color: @fg;
+    orientation: vertical;
+    border-radius: 4px;
+    padding: 4px;
+    spacing: 2px;
+}
+
+element selected {
+    border: 1.5px;
+    border-color: @border;
+    text-color: @selected-fg;
+}
+
+element-icon {
+    expand: false;
+    spacing: 5px;
+    size: 140px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    
+    font: "JetBrainsMono Nerd Font 9";
+    horizontal-align: 0.5;
+    vertical-align: 0;
+    padding: 0px;
+    margin: 0px;
+}
